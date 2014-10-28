@@ -3,6 +3,17 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <!-- colorPrimary 定义 ActionBar 的背景色 -->
+        <item name="colorPrimary">#3499da</item>
+
+        <!-- colorPrimaryDark 定义状态栏的背景色 -->
+        <item name="colorPrimaryDark">#0099cc</item>
+
+        <!-- colorAccent 为 colorControlActivated 的默认值，该值用户显示控件的高亮状态 -->
+        <item name="colorAccent">#5BD9AE</item>
+
+        <!-- 还可以设置 colorControlNormal, colorControlActivated
+             colorControlHighlight, 和 colorSwitchThumbNormal 的值来控制控件的颜色. -->
     </style>
 
 </resources>
