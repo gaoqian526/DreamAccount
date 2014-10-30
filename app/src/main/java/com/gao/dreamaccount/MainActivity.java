@@ -4,19 +4,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import butterknife.*;
+
 import android.widget.*;
 
 
 public class MainActivity extends ActionBarActivity {
 
-	@InjectView(R.id.button)
-	Button button;
+    @InjectView(R.id.button)
+    Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-		ButterKnife.inject(this);
+        ButterKnife.inject(this);
     }
 
 
