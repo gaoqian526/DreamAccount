@@ -4,5 +4,12 @@
     <string name="app_name">DreamAccount</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <!-- Title of the navigation drawer, used by accessibility to announce state changes. -->
+    <string name="drawer_title">Navigation</string>
 
+    <!-- Description of the icon that opens the navigation drawer, used by accessibility. -->
+    <string name="drawer_open">Open navigation drawer</string>
+
+    <!-- Description of the icon that closes the navigation drawer, used by accessibility. -->
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>
