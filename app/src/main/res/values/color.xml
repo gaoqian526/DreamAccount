@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="half_black">#808080</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#212121</color>
+    <color name="black_26">#BDBDBD</color>
+    <color name="black_54">#757575</color>
+    <color name="hovor">#33000000</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="transparent">#33B5E5</color>
+    <color name="light_green_500">#8BC34A</color>
+
+    <color name="blue_50">#E3F2FD</color>
+    <color name="blue_100">#BBDEFB</color>
+    <color name="blue_200">#90CAF9</color>
+    <color name="blue_300">#64B5F6</color>
+    <color name="blue_400">#42A5F5</color>
+    <color name="blue_500">#ff2196F3</color>
+    <color name="blue_600">#ff1E88E5</color>
+    <color name="blue_700">#1976D2</color>
+    <color name="blue_800">#1565C0</color>
+    <color name="blue_900">#0D47A1</color>
+    <color name="blue_A100">#82B1FF</color>
+    <color name="blue_A200">#448AFF</color>
+    <color name="blue_A400">#2979FF</color>
+    <color name="blue_A700">#2962FF</color>
+    <color name="gray_100">#f5f5f5</color>
+
+    <color name="color_light_blue">#64B5F6</color>
+    <color name="color_light_purple">#BA68C8</color>
+    <color name="color_light_yellow">#FDD835</color>
+    <color name="color_grass_yellow">#FFAB40</color>
+    <color name="color_hu_bule">#4DD0E1</color>
+    <color name="color_dark_purple">#EA80FC</color>
+    <color name="color_light_green">#AED581</color>
+    <color name="color_dark_green">#81C784</color>
+    <color name="color_light_orange">#FFA726</color>
+    <color name="color_dark_orange">#FFAB40</color>
+    <color name="color_light_red">#FF8A65</color>
+    <color name="color_dark_red">#FF6E40</color>
+    <color name="color_worm_gray">#BDBDBD</color>
+
+    <color name="tab_selected_strip">#00b0ff</color>
+    <color name="theme_primary">#3f51b5</color>
+    <color name="theme_primary_dark">#303f9f</color>
+    <color name="theme_accent_2">#e91e63</color>
+
+    <color name="primary">#3f51b5</color>
+    <color name="primary_pressed">#303f9f</color>
+    <color name="ripple">#ff80ab</color>
+    <color name="accent">#ff4081</color>
+    <color name="accent_pressed">#f50057</color>
+
+    <color name="LDialogs_transparent">#00000000</color>
+    <color name="LDialogs_dim_lighter_gray">#80E0E0E0</color>
+</resources>

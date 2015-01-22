@@ -4,16 +4,21 @@ android {
     compileSdkVersion 21
     buildToolsVersion "21.0.2"
 
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+        }
+    }
     defaultConfig {
         applicationId "com.gao.dreamaccount"
-        minSdkVersion 8
+        minSdkVersion 9
         targetSdkVersion 20
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -24,11 +29,24 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.+'
     compile 'com.android.support:recyclerview-v7:21.+'
     compile 'com.android.support:cardview-v7:21.+'
-    compile "com.daimajia.swipelayout:library:1.1.7@aar"
-    compile files('libs/mpandroidchartlibrary-1-7-1.jar')
+    compile 'com.daimajia.swipelayout:library:1.1.7@aar'
+    compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile files('libs/mpandroidchartlibrary-1-7-1.jar')
     compile files('libs/butterknife-6.0.0.jar')
     compile files('libs/ormlite-android-4.48.jar')
     compile files('libs/ormlite-core-4.48.jar')
     compile files('libs/eventbus-2.2.1.jar')
+    compile 'com.github.traex.rippleeffect:library:1.2.2'
+    compile('com.github.flavienlaurent.datetimepicker:library:0.0.2') {
+        exclude group: 'com.nineoldandroids', module: 'library'
+    }
+    compile project(':filechooserlibrary')
+    compile 'com.cocosw:bottomsheet:0.4'
+    compile 'uk.co.chrisjenx:calligraphy:1.2.0'
+    compile 'org.apmem.tools:layouts:1.6'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    compile 'com.loopj.android:android-async-http:1.4.6'
+    compile 'com.umeng.analytics:analytics:5.2.4'
+    compile project(':gaolibs')
+    compile project(':colorpicker')
 }

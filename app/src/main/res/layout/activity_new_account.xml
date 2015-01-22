@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    style="@style/defalut_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_actionbar" />
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_16">
+
+
+            <RadioGroup
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_16"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/activity_new_account_type_income"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/margin_16"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:text="@string/hint_income"
+                    android:textColor="@color/blue_500" />
+
+                <RadioButton
+                    android:id="@+id/activity_new_account_type_expense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/hint_expense"
+                    android:textColor="@color/color_light_orange" />
+            </RadioGroup>
+
+
+            <com.materialedittext.MaterialAutoCompleteTextView
+                android:id="@+id/activity_new_account_title_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:hint="@string/hint_name"
+                android:imeOptions="actionNext"
+                android:textCursorDrawable="@drawable/text_cursor_cyan"
+                android:textSize="34sp"
+                app:baseColor="@android:color/black"
+                app:floatingLabel="highlight"
+                app:primaryColor="?colorAccent" />
+
+            <TextView
+                android:id="@+id/activity_new_account_selet_hint"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="@dimen/margin_8"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="@string/string_fast_choice"
+                android:textColor="@color/black_54"
+                android:textSize="@dimen/text_size_16" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/activity_new_account_name_lay_1"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_38"
+                    android:layout_weight="1"
+                    card_view:cardElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/activity_new_account_name_1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/default_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/black_54"
+                        android:textSize="@dimen/text_size_14" />
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/activity_new_account_name_lay_2"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_38"
+                    android:layout_weight="1"
+                    card_view:cardElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/activity_new_account_name_2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/default_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/black_54"
+                        android:textSize="@dimen/text_size_14" />
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/activity_new_account_name_lay_3"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_38"
+                    android:layout_weight="1"
+                    card_view:cardElevation="1dp">
+
+                    <TextView
+                        android:id="@+id/activity_new_account_name_3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@drawable/default_selector"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:textColor="@color/black_54"
+                        android:textSize="@dimen/text_size_14" />
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_attach_money_black_24dp" />
+
+                <com.materialedittext.MaterialEditText
+                    android:id="@+id/activity_new_account_budget_input"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_8"
+                    android:layout_weight="1"
+                    android:hint="@string/hint_amount"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberDecimal"
+                    app:floatingLabel="highlight"
+                    app:primaryColor="?colorAccent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/height_48"
+                android:layout_marginTop="@dimen/margin_16"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_access_time_black_24dp" />
+
+                <TextView
+                    android:id="@+id/activity_new_account_set_time"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="@dimen/margin_8"
+                    android:layout_weight="1"
+                    android:background="@drawable/default_selector"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:hint="@string/hint_time"
+                    android:textColor="@color/half_black"
+                    android:textSize="@dimen/text_size_14" />
+            </LinearLayout>
+
+            <com.materialedittext.MaterialEditText
+                android:id="@+id/activity_new_account_description_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="@dimen/margin_8"
+                android:hint="@string/hint_description"
+                android:imeOptions="actionDone"
+                app:floatingLabel="highlight"
+                app:primaryColor="?colorAccent" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

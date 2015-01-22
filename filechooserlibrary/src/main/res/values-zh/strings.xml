@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="fc_directory">[目录]</string>
+    <string name="fc_file">[文件]</string>
+    <string name="fc_type_directory">目录</string>
+    <string name="fc_type_file">文件</string>
+    <string name="fc_internal_storage">内部存储卡</string>
+    <string name="fc_external_storage">外部存储卡</string>
+    <string name="fc_read_only">(只读)</string>
+    <string name="fc_empty_directory">空目录</string>
+    <string name="fc_cancel">取消</string>
+    <string name="fc_confirm">确定</string>
+    <string name="fc_close">关闭</string>
+
+</resources>

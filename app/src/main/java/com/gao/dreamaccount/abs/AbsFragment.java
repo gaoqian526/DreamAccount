@@ -4,7 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import com.umeng.analytics.MobclickAgent;
+
 public class AbsFragment extends Fragment {
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(getClass().getName()); //统计页面
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(getClass().getName());
+    }
+
     // =======================跳转activity======================
 
     public void launchActivity(Class<?> cls) {

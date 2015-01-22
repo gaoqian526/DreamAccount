@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">DreamAccount</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <!-- Title of the navigation drawer, used by accessibility to announce state changes. -->
-    <string name="drawer_title">Navigation</string>
+    <string name="app_name">小愿望</string>
+    <string name="hint_name">名称</string>
+    <string name="hint_description">简介</string>
+    <string name="hint_time">点击设置时间</string>
+    <string name="hint_budget">预算</string>
+    <string name="hint_income">收入</string>
+    <string name="hint_expense">支出</string>
+    <string name="hint_amount">金额</string>
+    <string name="btn_done">完成</string>
+    <string name="string_undone">未完成</string>
+    <string name="string_done">已完成</string>
+    <string name="string_alert">提示</string>
+    <string name="string_continue">继续</string>
+    <string name="string_ok">确定</string>
+    <string name="string_cancel">取消</string>
+    <string name="string_dream_default">许了个愿望，加油吧！</string>
+    <string name="string_dream_delete">确定要删除吗？</string>
+    <string name="string_dream">愿望</string>
+    <string name="string_new_dream">新愿望</string>
+    <string name="string_empty_hint">请认真填写！</string>
+    <string name="string_new_bill">新账单</string>
+    <string name="string_bill">账单</string>
+    <string name="string_total_bill">总账单</string>
+    <string name="string_today_bill">本日账单</string>
+    <string name="string_month_bill">本月账单</string>
+    <string name="string_year_bill">本年账单</string>
+    <string name="string_fast_choice">快速选择</string>
+    <string name="string_new_expence_hint">这是为了更好的战斗，嗯，一定是这样！</string>
+    <string name="string_new_income_hint">哦耶，离梦想又近了一步，加油！</string>
 
-    <!-- Description of the icon that opens the navigation drawer, used by accessibility. -->
-    <string name="drawer_open">Open navigation drawer</string>
-
-    <!-- Description of the icon that closes the navigation drawer, used by accessibility. -->
-    <string name="drawer_close">Close navigation drawer</string>
+    <string name="string_setting">设置</string>
+    <string name="string_setting_about">关于</string>
+    <string name="string_setting_export">导出</string>
+    <string name="string_setting_import">导入</string>
+    <string name="string_setting_password_hint">请输入密码</string>
 </resources>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/item_fragment_account_divider"
+        android:layout_width="3dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY"
+        android:src="@color/blue_300" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <com.gao.dreamaccount.views.RoundedLetterView
+            android:id="@+id/item_fragment_account_date"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_16"
+            android:gravity="center"
+            app:backgroundColorValue="@color/blue_300"
+            app:titleColor="@color/white"
+            app:titleSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/item_fragment_account_incomeamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_fragment_account_date"
+            android:layout_toLeftOf="@id/item_fragment_account_date"
+            android:gravity="right|center_vertical"
+            android:textColor="@color/blue_500"
+            android:textSize="@dimen/text_size_16" />
+
+
+        <TextView
+            android:id="@+id/item_fragment_account_expenseamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_fragment_account_incomeamount"
+            android:layout_toRightOf="@id/item_fragment_account_date"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/color_light_orange"
+            android:textSize="@dimen/text_size_16" />
+    </RelativeLayout>
+</FrameLayout>

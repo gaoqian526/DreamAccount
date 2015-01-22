@@ -1,22 +1,57 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <!-- colorPrimary 定义 ActionBar 的背景色 -->
-        <item name="colorPrimary">#3499da</item>
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryDark">@color/blue_600</item>
+        <item name="colorAccent">@color/blue_400</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
-        <!-- colorPrimaryDark 定义状态栏的背景色 -->
-        <item name="colorPrimaryDark">#0099cc</item>
+    <style name="ActionBarThemeOverlay" parent="">
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="colorControlNormal">#fff</item>
+        <item name="colorControlHighlight">#3fff</item>
+    </style>
 
-        <!-- colorAccent 为 colorControlActivated 的默认值，该值用户显示控件的高亮状态 -->
-        <item name="colorAccent">#5BD9AE</item>
 
-        <!-- 还可以设置 colorControlNormal, colorControlActivated
-             colorControlHighlight, 和 colorSwitchThumbNormal 的值来控制控件的颜色. -->
+    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+
+    <style name="ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
     <style name="SlidingTextViewStyle" parent="@android:style/Widget.TextView">
         <item name="android:textColor">#FFF</item>
     </style>
+
+    <style name="LDialogs_Light" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="LDialogs_Dark" parent="ThemeOverlay.AppCompat.Light">
+
+    </style>
+
+    <style name="defalut_bg">
+        <item name="android:background">@color/gray_100</item>
+    </style>
+
+    <!--<style name="NumberProgressBar_Default">-->
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+
+        <!--<item name="max">100</item>-->
+        <!--<item name="progress">0</item>-->
+
+        <!--<item name="progress_unreached_color">#FFA726</item>-->
+        <!--<item name="progress_reached_color">#29B6F6</item>-->
+
+        <!--<item name="progress_text_size">16sp</item>-->
+        <!--<item name="progress_text_color">#29B6F6</item>-->
+
+        <!--<item name="progress_reached_bar_height">28dp</item>-->
+        <!--<item name="progress_unreached_bar_height">28dp</item>-->
+    <!--</style>-->
 </resources>

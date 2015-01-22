@@ -1,34 +1,306 @@
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:wave="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawer_layout"
+    style="@style/defalut_bg"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- As the main content view, the view below consumes the entire
-         space available using match_parent in both dimensions. -->
-    <ScrollView
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        android:scrollbarStyle="outsideOverlay">
-        <TextView android:id="@+id/content_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="This activity illustrates the use of sliding drawers. The
-        drawer may be pulled out from the starting edge, which is left on left-to-right locales,
-        with an edge swipe. If this demo is running on Ice Cream Sandwich or newer you may tap the
-        icon at the starting side of the action bar to open the drawer as well."
-            android:textAppearance="?android:attr/textAppearanceMedium"/>
-    </ScrollView>
-    <!-- android:layout_gravity="start" tells DrawerLayout to treat
-         this as a sliding drawer on the starting side, which is
-         left for left-to-right locales. The drawer is given a fixed
-         width in dp and extends the full height of the container. A
-         solid background is used for contrast with the content view. -->
-    <ListView android:id="@+id/start_drawer"
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="#ff333333"/>
-</android.support.v4.widget.DrawerLayout>
+        android:orientation="vertical">
 
+        <include layout="@layout/toolbar_actionbar" />
+
+        <com.melnykov.fab.ObservableScrollView
+            android:id="@+id/activity_main_dream_scrollview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#F5F5F5"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:paddingBottom="70dp">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24dp"
+                        android:gravity="center_vertical"
+                        android:text="愿望"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:id="@+id/activity_main_dream_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/main_button_selector"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/margin_4"
+                        android:paddingLeft="@dimen/margin_8"
+                        android:paddingRight="@dimen/margin_8"
+                        android:paddingTop="@dimen/margin_4"
+                        android:text="更多"
+                        android:textColor="#29B6F6"
+                        android:textSize="@dimen/text_size_14" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/activity_main_dream_set_date"
+                        android:layout_width="fill_parent"
+                        android:layout_height="48dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/margin_16"
+                        android:layout_marginRight="@dimen/margin_16"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:text="不远的未来"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_18" />
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_16"
+                        android:layout_marginRight="@dimen/margin_16"
+                        android:src="@drawable/divider" />
+
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/margin_8"
+                        android:layout_marginLeft="@dimen/margin_16"
+                        android:layout_marginRight="@dimen/margin_16">
+
+                        <com.john.waveview.WaveView
+                            android:id="@+id/wave_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:background="#FFA726"
+                            wave:above_wave_color="@color/white"
+                            wave:blow_wave_color="@color/white"
+                            wave:progress="80"
+                            wave:wave_height="middle"
+                            wave:wave_hz="normal"
+                            wave:wave_length="middle" />
+
+                        <TextView
+                            android:id="@+id/activity_main_dream_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_margin="@dimen/margin_8"
+                            android:gravity="center"
+                            android:text="许个愿望"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_20" />
+
+                        <TextView
+                            android:id="@+id/activity_main_dream_budget"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/activity_main_dream_name"
+                            android:layout_margin="@dimen/margin_8"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_16" />
+
+
+                        <TextView
+                            android:id="@+id/activity_main_dream_des"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/activity_main_dream_budget"
+                            android:layout_margin="@dimen/margin_8"
+                            android:gravity="center"
+                            android:text="给自己许个小愿望，然后努力去实现它！"
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/text_size_14" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="24dp"
+                        android:gravity="center_vertical"
+                        android:text="财务"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:id="@+id/activity_main_account_look"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24dp"
+                        android:background="@drawable/main_button_selector"
+                        android:clickable="true"
+                        android:gravity="center_vertical"
+                        android:paddingBottom="@dimen/margin_4"
+                        android:paddingLeft="@dimen/margin_8"
+                        android:paddingRight="@dimen/margin_8"
+                        android:paddingTop="@dimen/margin_4"
+                        android:text="查看"
+                        android:textColor="#29B6F6"
+                        android:textSize="@dimen/text_size_14" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_8"
+                    android:layout_marginLeft="@dimen/margin_16"
+                    android:layout_marginRight="@dimen/margin_16"
+                    android:layout_marginTop="@dimen/margin_8"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/margin_16"
+                    android:paddingTop="@dimen/margin_16">
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_16"
+                        android:layout_marginRight="@dimen/margin_16"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="总资产："
+                            android:textColor="@color/black_54"
+                            android:textSize="@dimen/text_size_14" />
+
+                        <TextView
+                            android:id="@+id/activity_main_account_balance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_20"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16"
+                        android:src="@drawable/divider" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_16"
+                        android:layout_marginRight="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_16"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/margin_8"
+                                android:gravity="center"
+                                android:text="收"
+                                android:textColor="@color/black_54"
+                                android:textSize="@dimen/text_size_16" />
+
+                            <com.gao.dreamaccount.views.RoundedLetterView
+                                android:id="@+id/income_progress_bar"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:backgroundColorValue="@color/blue_300"
+                                app:titleColor="@color/white"
+                                app:titleSize="@dimen/text_size_14" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/margin_8"
+                                android:gravity="center"
+                                android:text="支"
+                                android:textColor="@color/black_54"
+                                android:textSize="@dimen/text_size_16" />
+
+                            <com.gao.dreamaccount.views.RoundedLetterView
+                                android:id="@+id/expense_progress_bar"
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="center"
+                                app:backgroundColorValue="@color/color_light_orange"
+                                app:titleColor="@color/white"
+                                app:titleSize="@dimen/text_size_14" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.melnykov.fab.ObservableScrollView>
+    </LinearLayout>
+
+    <com.melnykov.fab.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add_white_24dp"
+        fab:fab_colorNormal="@color/blue_600"
+        fab:fab_colorPressed="@color/primary_pressed"
+        fab:fab_colorRipple="@color/ripple"
+        fab:fab_shadow="false" />
+</RelativeLayout>
