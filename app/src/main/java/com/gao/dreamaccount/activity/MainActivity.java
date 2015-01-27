@@ -35,6 +35,7 @@ import com.gao.dreamaccount.util.Constant;
 import com.gao.dreamaccount.util.MD5Util;
 import com.gao.dreamaccount.util.PreferencesUtils;
 import com.gao.dreamaccount.util.Utils;
+import com.gao.dreamaccount.views.RingLetterView;
 import com.gao.dreamaccount.views.RoundedLetterView;
 import com.gao.dreamaccount.views.ldialogs.BaseDialog;
 import com.gao.dreamaccount.views.ldialogs.CustomDialog;
@@ -73,9 +74,9 @@ public class MainActivity extends AbsActivity {
     @InjectView(R.id.activity_main_dream_scrollview)
     ObservableScrollView scrollView;
     @InjectView(R.id.income_progress_bar)
-    RoundedLetterView incomeRp;
+    RingLetterView incomeRp;
     @InjectView(R.id.expense_progress_bar)
-    RoundedLetterView expenseRp;
+    RingLetterView expenseRp;
     @InjectView(R.id.activity_main_dream_budget)
     TextView dreambudget;
 
@@ -137,8 +138,9 @@ public class MainActivity extends AbsActivity {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.action_settings) {
-                    launchActivity(ActivitySetting.class);
+//                    launchActivity(ActivitySetting.class);
 //                    colorPickerDialog.show(getSupportFragmentManager(), "");
+                    launchActivity(ActivityRegist.class);
                 }
                 return false;
             }
@@ -181,6 +183,13 @@ public class MainActivity extends AbsActivity {
     @OnClick(R.id.activity_main_dream_more)
     void goDreamPager() {
         launchActivity(ActivityDreamPager.class);
+    }
+
+    @OnClick(R.id.activity_main_dream_lay)
+    void goNewDream() {
+        if (dreamBean == null) {
+            launchActivity(ActivityNewDream.class);
+        }
     }
 
     @OnClick(R.id.fab)
@@ -236,16 +245,10 @@ public class MainActivity extends AbsActivity {
         bspannable.setSpan(bspan_0, 0, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         bspannable.setSpan(bspan_01, budgetS.indexOf("预"), budgetS.indexOf("预") + 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         dreambudget.setText(bspannable);
-//        numberProgressBar.setBugetMoney("预算：" + dreamBean.getBudget());
-//        numberProgressBar.setCurrentMoney("结余：" + getBalance());
-//        numberProgressBar.setProgress((int) ((getBalance() * 100) / dreamBean.getBudget()));
         if (getBalance() > dreamBean.getBudget()) {
-//            statusTxt.setTextColor(getResources().getColor(R.color.blue_500));
-//            statusTxt.setText("可完成");
+            waveView.setBackgroundResource(R.color.blue_300);
         } else {
-//            statusTxt.setTextColor(getResources().getColor(R.color.color_light_red));
-//            String status = Utils.formateDouble(dreamBean.getBudget() - getBalance());
-//            statusTxt.setText(status);
+            waveView.setBackgroundResource(R.color.color_light_orange);
         }
         if (!TextUtils.isEmpty(dreamBean.getDes())) {
             desTxt.setText(dreamBean.getDes());
@@ -273,7 +276,12 @@ public class MainActivity extends AbsActivity {
                 dreamBean = dreamBeans.get(0);
                 fillView();
             } else {
-//                numberProgressBar.setVisibility(View.GONE);
+                dateTxt.setText("不远的未来");
+                nameTxt.setText("许个愿望");
+                dreambudget.setText("");
+                waveView.setProgress(80);
+                waveView.setBackgroundResource(R.color.color_light_orange);
+                desTxt.setText("给自己许个小愿望，然后努力去实现它！");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -314,7 +322,8 @@ public class MainActivity extends AbsActivity {
         CustomDialog.Builder builder = new CustomDialog.Builder(this, "提示", "确定");
         builder.darkTheme(true);
         builder.titleAlignment(BaseDialog.Alignment.CENTER); // Use either Alignment.LEFT, Alignment.CENTER or Alignment.RIGHT
-        builder.contentColorRes(R.color.black); // int res, or int colorRes parameter versions available as well.
+        builder.titleColorRes(R.color.black_26);
+        builder.contentColorRes(R.color.black_54); // int res, or int colorRes parameter versions available as well.
         builder.positiveColorRes(R.color.blue_600);
         builder.buttonAlignment(BaseDialog.Alignment.RIGHT);
         final CustomDialog customDialog = builder.build();

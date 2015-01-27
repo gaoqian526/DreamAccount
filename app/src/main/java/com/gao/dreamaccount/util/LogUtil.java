@@ -4,7 +4,7 @@ import android.util.Log;
 
 public class LogUtil {
 
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
 
     private static final String TAG = "Dream";
 

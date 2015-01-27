@@ -12,6 +12,7 @@ import com.gao.dreamaccount.abs.AbsActivity;
 import com.gao.dreamaccount.adapter.AdapterFragmentDayAccount;
 import com.gao.dreamaccount.bean.AccountBean;
 import com.gao.dreamaccount.bean.AccountTotalBean;
+import com.gao.dreamaccount.event.UpdateEvent;
 import com.gao.dreamaccount.util.Constant;
 import com.gao.dreamaccount.util.LogUtil;
 import com.j256.ormlite.dao.Dao;
@@ -25,6 +26,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
+import de.greenrobot.event.EventBus;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityBase;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
@@ -52,6 +54,7 @@ public class ActivityAccountDayPager extends AbsActivity implements SwipeBackAct
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_day);
         ButterKnife.inject(this);
+        EventBus.getDefault().register(this);
         swipeBackActivityHelper = new SwipeBackActivityHelper(this);
         swipeBackActivityHelper.onActivityCreate();
         dateStr = getIntent().getStringExtra("date");
@@ -105,6 +108,19 @@ public class ActivityAccountDayPager extends AbsActivity implements SwipeBackAct
             floatingActionButton.attachToListView(listView);
             floatingActionButton.show();
         }
+    }
+
+    public void onEvent(UpdateEvent event) {
+        List<AccountTotalBean> incomeAccountTotalBeans = getDayIncomeAccountData();
+        List<AccountTotalBean> expenseAccountTotalBeans = getDayExpenseAccountData();
+        List<AccountTotalBean> totalBeans = new ArrayList<>();
+        if (incomeAccountTotalBeans != null) {
+            totalBeans.addAll(incomeAccountTotalBeans);
+        }
+        if (expenseAccountTotalBeans != null) {
+            totalBeans.addAll(expenseAccountTotalBeans);
+        }
+        adapterFragmentDayAccount.setAccountTotalBeans(totalBeans);
     }
 
     @Override

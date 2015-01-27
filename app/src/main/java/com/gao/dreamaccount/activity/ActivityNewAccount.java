@@ -373,7 +373,7 @@ public class ActivityNewAccount extends AbsActivity implements SwipeBackActivity
         type = AccountBean.INCOME;
         expenseRadio.setChecked(false);
         incomeRadio.setChecked(true);
-        timeTxt.setText(R.string.hint_time);
+        timeTxt.setText(Utils.getDay(System.currentTimeMillis()));
     }
 
     private void showCommitDialog(String content) {
@@ -382,10 +382,10 @@ public class ActivityNewAccount extends AbsActivity implements SwipeBackActivity
         builder.negativeText(getResources().getString(R.string.string_ok));
         builder.darkTheme(true);
         builder.titleAlignment(BaseDialog.Alignment.LEFT); // Use either Alignment.LEFT, Alignment.CENTER or Alignment.RIGHT
-//        builder.titleColorRes(R.color.blue_600); // int res, or int colorRes parameter versions available as well.
-        builder.contentColorRes(R.color.black); // int res, or int colorRes parameter versions available as well.
+        builder.titleColorRes(R.color.black_26); // int res, or int colorRes parameter versions available as well.
+        builder.contentColorRes(R.color.black_54); // int res, or int colorRes parameter versions available as well.
         builder.negativeColorRes(R.color.blue_600); // int res, or int colorRes parameter versions available as well.
-//        builder.negativeColorRes(R.color.color_light_red); // int res, or int colorRes parameter versions available as well.
+        builder.negativeColorRes(R.color.color_light_red); // int res, or int colorRes parameter versions available as well.
         builder.buttonAlignment(BaseDialog.Alignment.RIGHT);
         customDialog = builder.build();
         customDialog.show();
@@ -413,9 +413,11 @@ public class ActivityNewAccount extends AbsActivity implements SwipeBackActivity
         builder.content("确定要删除吗");
         builder.negativeText(getResources().getString(R.string.string_cancel));
         builder.darkTheme(true);
+        builder.titleColorRes(R.color.black_26);
         builder.titleAlignment(BaseDialog.Alignment.LEFT); // Use either Alignment.LEFT, Alignment.CENTER or Alignment.RIGHT
-        builder.contentColorRes(R.color.black); // int res, or int colorRes parameter versions available as well.
+        builder.contentColorRes(R.color.black_54); // int res, or int colorRes parameter versions available as well.
         builder.negativeColorRes(R.color.blue_600); // int res, or int colorRes parameter versions available as well.
+        builder.positiveColorRes(R.color.color_light_red);
         builder.buttonAlignment(BaseDialog.Alignment.RIGHT);
         final CustomDialog customDialog = builder.build();
         customDialog.setClickListener(new CustomDialog.ClickListener() {

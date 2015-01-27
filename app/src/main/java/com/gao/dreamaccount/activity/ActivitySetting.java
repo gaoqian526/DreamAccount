@@ -122,7 +122,7 @@ public class ActivitySetting extends AbsActivity implements SwipeBackActivityBas
 
     @OnClick(R.id.activity_setting_about)
     void about() {
-        showAboutDialog("有任何意见和建议请发邮箱：gq-526@163.com");
+        showAboutDialog("邮  箱：gq-526@163.com\r\nQQ群：273805923");
     }
 
     @OnClick(R.id.activity_setting_feedback)
@@ -304,7 +304,7 @@ public class ActivitySetting extends AbsActivity implements SwipeBackActivityBas
     }
 
     private void showAboutDialog(String content) {
-        CustomDialog.Builder builder = new CustomDialog.Builder(this, getResources().getString(R.string.string_setting_about), getResources().getString(R.string.string_ok));
+        CustomDialog.Builder builder = new CustomDialog.Builder(this, "联系我", getResources().getString(R.string.string_ok));
         builder.content(content);
         builder.darkTheme(true);
         builder.titleAlignment(BaseDialog.Alignment.LEFT); // Use either Alignment.LEFT, Alignment.CENTER or Alignment.RIGHT

@@ -40,6 +40,7 @@
         <activity android:name=".activity.ActivityAccountDayPager" />
         <activity android:name=".activity.ActivityAccountTotalPager" />
         <activity android:name="lecho.lib.filechooser.FilechooserActivity" />
+        <activity android:name=".activity.ActivityRegist" />
 
         <service
             android:name="com.umeng.update.net.DownloadingService"
@@ -67,7 +68,7 @@
             android:value="547c7f89fd98c5f6a5000895" />
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="gao" />
+            android:value="test" />
     </application>
 
 </manifest>

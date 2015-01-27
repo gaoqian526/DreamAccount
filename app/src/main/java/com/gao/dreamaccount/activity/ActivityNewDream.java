@@ -14,6 +14,7 @@ import com.gao.dreamaccount.abs.AbsActivity;
 import com.gao.dreamaccount.bean.AccountBean;
 import com.gao.dreamaccount.bean.DreamBean;
 import com.gao.dreamaccount.event.UpdateEvent;
+import com.gao.dreamaccount.util.LogUtil;
 import com.gao.dreamaccount.util.Utils;
 import com.gao.dreamaccount.views.ldialogs.BaseDialog;
 import com.gao.dreamaccount.views.ldialogs.CustomDialog;
@@ -68,15 +69,25 @@ public class ActivityNewDream extends AbsActivity implements SwipeBackActivityBa
         dreamBeanDao = dataBaseHelper.getDreamBeanDao();
         accountBeanDao = dataBaseHelper.getAccountBeanDao();
         if (dreamBean != null) {
+            LogUtil.e("++++"+dreamBean.getUuid());
             toolbar.setTitle(dreamBean.getName());
-            toolbar.inflateMenu(R.menu.menu_delete_only);
+            toolbar.inflateMenu(R.menu.menu_delete);
             toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                 @Override
                 public boolean onMenuItemClick(MenuItem menuItem) {
-                    showDeleteDialog();
+                    if (menuItem.getItemId() == R.id.menu_delete) {
+                        showDeleteDialog();
+                    } else {
+                        if (checkData()) {
+                            showCommitDialog();
+                        } else {
+                            showToast(getResources().getString(R.string.string_empty_hint));
+                        }
+                    }
                     return false;
                 }
             });
+            setTime = dreamBean.getSetTime();
             fillView(dreamBean);
         } else {
             toolbar.setTitle(R.string.string_new_dream);
@@ -188,20 +199,26 @@ public class ActivityNewDream extends AbsActivity implements SwipeBackActivityBa
     }
 
     private void gatherData() {
-        DreamBean dreamBean = new DreamBean();
+        DreamBean tdreamBean = new DreamBean();
         String name = titleInut.getText().toString();
         String des = desInput.getText().toString();
         double buget = Double.parseDouble(budgetInput.getText().toString());
-        String uuid = Utils.getUUID();
-        dreamBean.setUuid(uuid);
-        dreamBean.setName(name);
-        dreamBean.setDes(des);
-        dreamBean.setBudget(buget);
-        dreamBean.setSetTime(setTime);
-        dreamBean.setStatus(DreamBean.STATUS_UNDO);
-        dreamBean.setInsertTime(System.currentTimeMillis());
+        if (dreamBean != null) {
+            LogUtil.e("==="+dreamBean.getUuid());
+            tdreamBean.setUuid(dreamBean.getUuid());
+        } else {
+            String uuid = Utils.getUUID();
+            tdreamBean.setUuid(uuid);
+        }
+        LogUtil.e("***"+tdreamBean.getUuid());
+        tdreamBean.setName(name);
+        tdreamBean.setDes(des);
+        tdreamBean.setBudget(buget);
+        tdreamBean.setSetTime(setTime);
+        tdreamBean.setStatus(DreamBean.STATUS_UNDO);
+        tdreamBean.setInsertTime(System.currentTimeMillis());
         try {
-            dreamBeanDao.createOrUpdate(dreamBean);
+            dreamBeanDao.createOrUpdate(tdreamBean);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -241,10 +258,10 @@ public class ActivityNewDream extends AbsActivity implements SwipeBackActivityBa
         builder.negativeText(getResources().getString(R.string.string_cancel));
         builder.darkTheme(true);
         builder.titleAlignment(BaseDialog.Alignment.LEFT); // Use either Alignment.LEFT, Alignment.CENTER or Alignment.RIGHT
-//        builder.titleColorRes(R.color.blue_600); // int res, or int colorRes parameter versions available as well.
-        builder.contentColorRes(R.color.black); // int res, or int colorRes parameter versions available as well.
+        builder.titleColorRes(R.color.black_26); // int res, or int colorRes parameter versions available as well.
+        builder.contentColorRes(R.color.black_54); // int res, or int colorRes parameter versions available as well.
         builder.positiveColorRes(R.color.blue_600); // int res, or int colorRes parameter versions available as well.
-//        builder.negativeColorRes(R.color.color_light_red); // int res, or int colorRes parameter versions available as well.
+        builder.negativeColorRes(R.color.color_light_red); // int res, or int colorRes parameter versions available as well.
         final CustomDialog customDialog = builder.build();
         customDialog.show();
         customDialog.setClickListener(new CustomDialog.ClickListener() {
@@ -268,24 +285,25 @@ public class ActivityNewDream extends AbsActivity implements SwipeBackActivityBa
         builder.content(getResources().getString(R.string.string_dream_default));
         builder.negativeText(getResources().getString(R.string.string_cancel));
         builder.darkTheme(true);
+        builder.contentColorRes(R.color.black_54);
         builder.titleAlignment(BaseDialog.Alignment.LEFT); // Use either Alignment.LEFT, Alignment.CENTER or Alignment.RIGHT
-//        builder.titleColorRes(R.color.blue_600); // int res, or int colorRes parameter versions available as well.
-        builder.contentColorRes(R.color.black); // int res, or int colorRes parameter versions available as well.
+        builder.titleColorRes(R.color.black_26); // int res, or int colorRes parameter versions available as well.
         builder.positiveColorRes(R.color.blue_600); // int res, or int colorRes parameter versions available as well.
-//        builder.negativeColorRes(R.color.color_light_red); // int res, or int colorRes parameter versions available as well.
-        CustomDialog customDialog = builder.build();
+        builder.negativeColorRes(R.color.color_light_red); // int res, or int colorRes parameter versions available as well.
+        final CustomDialog customDialog = builder.build();
         customDialog.show();
         customDialog.setClickListener(new CustomDialog.ClickListener() {
             @Override
             public void onConfirmClick() {
                 gatherData();
+                customDialog.dismiss();
                 EventBus.getDefault().post(new UpdateEvent());
                 finish();
             }
 
             @Override
             public void onCancelClick() {
-
+                customDialog.dismiss();
             }
         });
     }

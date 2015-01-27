@@ -14,7 +14,7 @@ import android.view.View;
 import com.gao.dreamaccount.R;
 
 
-public class RoundedLetterView extends View {
+public class RingLetterView extends View {
 
     private static int DEFAULT_TITLE_COLOR = Color.WHITE;
     private static int DEFAULT_BACKGROUND_COLOR = Color.CYAN;
@@ -26,23 +26,24 @@ public class RoundedLetterView extends View {
     private int mBackgroundColor = DEFAULT_BACKGROUND_COLOR;
     private String mTitleText = DEFAULT_TITLE;
     private float mTitleSize = DEFAULT_TITLE_SIZE;
+    private float radio = 0;//圆环宽度
 
     private TextPaint mTitleTextPaint;
     private Paint mBackgroundPaint;
     private RectF mInnerRectF;
     private int mViewSize;
 
-    public RoundedLetterView(Context context) {
+    public RingLetterView(Context context) {
         super(context);
         init(null, 0);
     }
 
-    public RoundedLetterView(Context context, AttributeSet attrs) {
+    public RingLetterView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }
 
-    public RoundedLetterView(Context context, AttributeSet attrs, int defStyle) {
+    public RingLetterView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(attrs, defStyle);
     }
@@ -61,6 +62,7 @@ public class RoundedLetterView extends View {
         mTitleSize = a.getDimension(R.styleable.RoundedLetterView_titleSize, DEFAULT_TITLE_SIZE);
         a.recycle();
 
+        radio = getResources().getDimension(R.dimen.margin_8);
         //Title TextPaint
         mTitleTextPaint = new TextPaint();
         mTitleTextPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
@@ -73,7 +75,7 @@ public class RoundedLetterView extends View {
         //Background Paint
         mBackgroundPaint = new Paint();
         mBackgroundPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        mBackgroundPaint.setStyle(Paint.Style.FILL);
+        mBackgroundPaint.setStyle(Paint.Style.STROKE);
         mBackgroundPaint.setColor(mBackgroundColor);
 
         mInnerRectF = new RectF();
@@ -111,8 +113,9 @@ public class RoundedLetterView extends View {
         int xPos = (int) centerX;
         int yPos = (int) (centerY - (mTitleTextPaint.descent() + mTitleTextPaint.ascent()) / 2);
 
-        canvas.drawOval(mInnerRectF, mBackgroundPaint);
-        canvas.drawCircle(centerX, centerY, getHeight() / 2, mBackgroundPaint);
+//        canvas.drawOval(mInnerRectF, mBackgroundPaint);
+        mBackgroundPaint.setStrokeWidth(radio);
+        canvas.drawCircle(centerX, centerY, mInnerRectF.width() / 2 - radio / 2, mBackgroundPaint);
 
         canvas.drawText(mTitleText,
                 xPos,

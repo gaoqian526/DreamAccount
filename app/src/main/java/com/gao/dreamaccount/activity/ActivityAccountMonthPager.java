@@ -11,6 +11,7 @@ import com.gao.dreamaccount.abs.AbsActivity;
 import com.gao.dreamaccount.adapter.AdapterFragmentYearAccount;
 import com.gao.dreamaccount.bean.AccountBean;
 import com.gao.dreamaccount.bean.AccountTotalBean;
+import com.gao.dreamaccount.event.UpdateEvent;
 import com.gao.dreamaccount.util.Constant;
 import com.gao.dreamaccount.util.Utils;
 import com.gao.dreamaccount.views.RoundedLetterView;
@@ -54,7 +55,6 @@ public class ActivityAccountMonthPager extends AbsActivity implements SwipeBackA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_year);
-        ButterKnife.inject(this);
         ButterKnife.inject(this);
         accountBeanDao = getDataBaseHelper().getAccountBeanDao();
         swipeBackActivityHelper = new SwipeBackActivityHelper(this);
@@ -100,6 +100,10 @@ public class ActivityAccountMonthPager extends AbsActivity implements SwipeBackA
             floatingActionButton.attachToListView(listView);
             floatingActionButton.show();
         }
+    }
+
+    public void onEvent(UpdateEvent event) {
+        getData();
     }
 
     @Override

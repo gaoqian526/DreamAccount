@@ -11,6 +11,7 @@ import com.gao.dreamaccount.abs.AbsActivity;
 import com.gao.dreamaccount.adapter.AdapterFragmentYearAccount;
 import com.gao.dreamaccount.bean.AccountBean;
 import com.gao.dreamaccount.bean.AccountTotalBean;
+import com.gao.dreamaccount.event.UpdateEvent;
 import com.gao.dreamaccount.views.RoundedLetterView;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.GenericRawResults;
@@ -23,6 +24,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
+import de.greenrobot.event.EventBus;
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityBase;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
@@ -51,6 +53,7 @@ public class ActivityAccountTotalPager extends AbsActivity implements SwipeBackA
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_year);
         ButterKnife.inject(this);
+        EventBus.getDefault().register(this);
         swipeBackActivityHelper = new SwipeBackActivityHelper(this);
         swipeBackActivityHelper.onActivityCreate();
         accountBeanDao = getDataBaseHelper().getAccountBeanDao();
@@ -89,6 +92,11 @@ public class ActivityAccountTotalPager extends AbsActivity implements SwipeBackA
         Bundle bundle = new Bundle();
         bundle.putString("year", adapterFragmentAccount.getItem(position).getTitle());
         launchActivity(ActivityAccountYearPager.class, bundle);
+    }
+
+    public void onEvent(UpdateEvent event) {
+        List<AccountTotalBean> accountTotalBeans = getTotalAccountData();
+        adapterFragmentAccount.setAccountTotalBeans(accountTotalBeans);
     }
 
     public void attchListView(ListView listView) {

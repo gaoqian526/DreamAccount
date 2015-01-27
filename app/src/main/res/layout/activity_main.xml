@@ -66,6 +66,7 @@
                 </RelativeLayout>
 
                 <LinearLayout
+                    android:id="@+id/activity_main_dream_lay"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -247,14 +248,14 @@
                                 android:textColor="@color/black_54"
                                 android:textSize="@dimen/text_size_16" />
 
-                            <com.gao.dreamaccount.views.RoundedLetterView
+                            <com.gao.dreamaccount.views.RingLetterView
                                 android:id="@+id/income_progress_bar"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_centerHorizontal="true"
                                 android:gravity="center"
                                 app:backgroundColorValue="@color/blue_300"
-                                app:titleColor="@color/white"
+                                app:titleColor="@color/blue_300"
                                 app:titleSize="@dimen/text_size_14" />
 
                         </LinearLayout>
@@ -275,14 +276,14 @@
                                 android:textColor="@color/black_54"
                                 android:textSize="@dimen/text_size_16" />
 
-                            <com.gao.dreamaccount.views.RoundedLetterView
+                            <com.gao.dreamaccount.views.RingLetterView
                                 android:id="@+id/expense_progress_bar"
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
                                 android:layout_centerHorizontal="true"
                                 android:gravity="center"
                                 app:backgroundColorValue="@color/color_light_orange"
-                                app:titleColor="@color/white"
+                                app:titleColor="@color/color_light_orange"
                                 app:titleSize="@dimen/text_size_14" />
                         </LinearLayout>
                     </LinearLayout>

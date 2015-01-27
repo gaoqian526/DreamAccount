@@ -96,7 +96,7 @@ public class WelcomActivity extends AbsActivity {
                 }
                 String imgPath = jsonObject.getString("path");
                 if (!TextUtils.isEmpty(imgPath)) {
-                    imgPath = "http://daiwoyige.com/" + imgPath;
+                    imgPath = "http://daiwoyige.com" + imgPath;
                     ImageLoader.getInstance().displayImage(imgPath, mActivityWelcomeImg, getDisplayImageOptions());
                 }
             }
